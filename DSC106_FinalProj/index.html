@@ -3,17 +3,43 @@
     <head>
         <meta charset = 'UTF-8' >
         <link rel = 'stylesheet' href = 'style.css' />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat%7CPaytone+One&display=swap" rel="stylesheet" />
         <script src = "https://code.highcharts.com/highcharts.js"></script>
         <script src = "https://code.highcharts.com/modules/exporting.js"></script>
         <script src = "https://code.highcharts.com/modules/export-data.js"></script>
         <title> DSC 106 Final Project </title>
     </head>
     <body>
-        <h1> A JUMP into NBA </h1>
-        <div id = 'shotLogScatter'></div>
+        <br><br><br><br><br><br><br><br>
+        <h1> 
+            A JUMP into the Golden State Warriors <br> <br>
+            <img src = 'GSWlogo.png' alt = 'logo' style = "width:500px; height: 500px;">
+        </h1>
+        <p> By: Joseph Bui & Justin Lu </p>
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class = 'grid'> 
+            <div class = 'grid-item' style = 'margin-left: 60px'> 
+                <p> Let's take a look at the top 3 Golden State Warriors players of all time:
+                </p>
+            </div>
+            <div class = 'grid-item' style = "height:1000px">
+                <iframe src="https://e.infogram.com/479d2e92-a38b-49d2-9e2e-a8c2051cf1ac?src=embed" title="GSW Top 3" width="500" height="900" scrolling="no" frameborder="0" style="border:none;" allowfullscreen="allowfullscreen">
+                </iframe>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br>
+        <p> As we can see from the trend, the average salaries reflect <br> the state of the economy as well as the Warriors' performance. </p>
         <div id = 'salaryLine'></div>
-        <div id = 'cie'></div>
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class = 'diffGrid'>
+            <div class = 'grid-item' id = 'cie' style = "height:500px"></div>
+            <div class = 'grid-item'>
+                <p> This pie chart shows which coaches the Warriors won the championships under over the years. </p>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br>
         <div id = 'court'></div>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
         <div id = 'pufBar'></div>
     </body>
     <script src = "main.js"></script>
