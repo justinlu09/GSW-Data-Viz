@@ -219,53 +219,7 @@ function plotScore(score) {
         credits: false
     })
 }
-function plotBar(s) {
-    var d = [];
-    var h = [];
-    for (datum of s) {
-        d.push([datum[0], datum[1]]);
-        h.push(datum[0])
-    }
-    Highcharts.chart('pufBar', {
-        chart: {
-            type: 'column',
-            style: {
-                fontFamily: "'Montserrat', sans-serif"
-            }
-        },
-        title: {
-            text: "Heights & Rebound Averages",
-            style: {
-                fontWeight: 'bold'
-            }
-        },
-        subtitle: {
-            text: 'Source: <a href="https://www.basketball-reference.com/"> NBA Stats API/basketball-reference.com</a>'
-        },
-        xAxis: {
-            categories: h,
-            title: {
-                text: 'Heights (cm)'
-            }
-        },
-        yAxis: {
-            title: {
-                text: 'Average Rebounds'
-            }
-        },
-        series:[
-            {
-                data: d,
-                showInLegend: false,
-                tooltip: {
-                    headerFormat: '{undefined}',
-                    pointFormat: '{point.y:.2f}'
-                }
-            }
-        ],
-        credits: false
-    });
-}
+
 function plotColumn(shot) {
     var cav2 = 0;
     var cav3 = 0;
