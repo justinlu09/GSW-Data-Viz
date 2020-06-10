@@ -3,23 +3,24 @@
     <head>
         <meta charset = 'UTF-8' >
         <link rel = 'stylesheet' href = 'style.css' />
+        <link rel = 'icon' href = 'GSWlogo.png'>
         <link href="https://fonts.googleapis.com/css?family=Montserrat%7CPaytone+One&display=swap" rel="stylesheet" />
         <script src = "https://code.highcharts.com/highcharts.js"></script>
         <script src = "https://code.highcharts.com/modules/exporting.js"></script>
         <script src = "https://code.highcharts.com/modules/export-data.js"></script>
-        <title> DSC 106 Final Project </title>
+        <title> The History of the Golden State Warriors </title>
     </head>
     <body>
-        <br><br><br><br><br><br><br><br>
+        <br><br>
         <h1> 
-            A JUMP into the Golden State Warriors <br> <br>
+            The Story of the Golden State Warriors <br> <br>
             <img src = 'GSWlogo.png' alt = 'logo' style = "width:500px; height: 500px;">
         </h1>
         <p> By: Joseph Bui & Justin Lu </p>
         <br><br><br><br><br><br><br><br><br><br>
         <div class = 'grid'> 
             <div class = 'grid-item' style = 'margin-left: 60px'> 
-                <p> Let's take a look at the top 3 Golden State Warriors players of all time:
+                <p> Let's take a look at the top 3 Golden State Warriors players of all time (based on career points made):
                 </p>
             </div>
             <div class = 'grid-item' style = "height:1000px">
@@ -30,7 +31,17 @@
         <br><br><br><br><br><br><br><br><br><br>
         <p> As we can see from the trend, the average salaries reflect <br> the state of the economy as well as the Warriors' performance. </p>
         <div id = 'salaryLine'></div>
-        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class = 'flex'>
+                <div>
+                    <p> This scatter chart shows the missed and made shots on the court. </p>
+                </div>
+            <div id = 'court' style = "margin-left: 200px; margin-right: 200px;"></div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p> Golden State Warriors won the championships even when they had fewer 3-point shots made. </p>
+        <div id = 'pufBar'></div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class = 'diffGrid'>
             <div class = 'grid-item' id = 'cie' style = "height:500px"></div>
             <div class = 'grid-item'>
@@ -38,9 +49,6 @@
             </div>
         </div>
         <br><br><br><br><br><br><br><br><br><br>
-        <div id = 'court'></div>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
-        <div id = 'pufBar'></div>
     </body>
     <script src = "main.js"></script>
 </html>

@@ -28,7 +28,7 @@ function plotSalaries(salary) {
             }
         },
         subtitle: {
-            text: "Source: ESPN"
+            text: 'Source: <a href="https://www.espn.com/nba/team/_/name/gs/golden-state-warriors">ESPN</a>'
         },
         xAxis: {
             categories: dates,
@@ -52,7 +52,7 @@ function plotSalaries(salary) {
     });
 }
 
-function plotPie(country) {
+function plotPie(coach) {
 
     Highcharts.chart('cie', {
         chart: {
@@ -78,17 +78,17 @@ function plotPie(country) {
             }
         },
         subtitle: {
-            text: 'Source: <a href = "http://basketball-reference.com/teams/GSW/coaches.html"> basketball-reference.com </a>'
+            text: 'Source: <a href="https://www.basketball-reference.com/"> basketball-reference.com</a>'
         },
         tooltip: {
-            pointFormat: '{point.y}'
+            pointFormat: '<b>{point.y}<b/>'
         },
         plotOptions: {
             pie: {
                 colors: [
                     '#FFDD33',
-                    '#FFA833',
-                    '#4633FF',
+                    '#fdb927',
+                    '#006bb6',
                     '#ECFF33'
                 ],
                 dataLabels: {
@@ -107,16 +107,16 @@ function plotPie(country) {
             data:[
                 {
                     name: 'Al Attles',
-                    y: 1,
+                    y: 1
                 }, {
-                    name: 'Edwaard Gottlieb',
-                    y: 1,
+                    name: 'Edward Gottlieb',
+                    y: 1
                 }, {
                     name: 'Steve Kerr',
-                    y: 3,
+                    y: 3
                 }, {
                     name: 'George Senesky',
-                    y: 1,
+                    y: 1
                 }
             ], 
             showInLegend: true
@@ -166,7 +166,7 @@ function plotScore(score) {
             }
         },
         subtitle: {
-            text: "Source: https://www.mysportsfeed.com/"
+            text: 'Source: <a href="https://www.mysportsfeeds.com/"> mysportsfeeds.com</a>'
         },
         legend: {
             layout: 'vertical',
@@ -240,7 +240,7 @@ function plotBar(s) {
             }
         },
         subtitle: {
-            text: "Source: NBA Stats API/basketball-reference.com"
+            text: 'Source: <a href="https://www.basketball-reference.com/"> NBA Stats API/basketball-reference.com</a>'
         },
         xAxis: {
             categories: h,
@@ -266,23 +266,116 @@ function plotBar(s) {
         credits: false
     });
 }
+function plotColumn(shot) {
+    var cav2 = 0;
+    var cav3 = 0;
+    var gsw2 = 0;
+    var gsw3 = 0;
+    var sas2 = 0;
+    var sas3 = 0;
+    var bos2 = 0;
+    var bos3 = 0;
+    for (datum of shot) {
+        if ((datum[0] === 2) && (datum[1] === 'SCORED') && (datum[2] === 'GSW')) {
+            gsw2 += 1;
+        }
+        else if ((datum[0] === 3) && (datum[1] === 'SCORED') && (datum[2] === 'GSW')) {
+            gsw3 += 1;
+        } 
+        else if ((datum[0] === 2) && (datum[1] === 'SCORED') && (datum[2] === 'SAS')) {
+            sas2 += 1;
+        }
+        else if ((datum[0] === 3) && (datum[1] === 'SCORED') && (datum[2] === 'SAS')) {
+            sas3 += 1;
+        }
+        else if ((datum[0] === 2) && (datum[1] === 'SCORED') && (datum[2] === 'CAV')) {
+            cav2 += 1;
+        }
+        else if ((datum[0] === 3) && (datum[1] === 'SCORED') && (datum[2] === 'CAV')) {
+            cav3 += 1;
+        }
+        else if ((datum[0] === 2) && (datum[1] === 'SCORED') && (datum[2] === 'BOS')) {
+            bos2 += 1;
+        }
+        else if ((datum[0] === 3) && (datum[1] === 'SCORED') && (datum[2] === 'BOS')) {
+            bos3 += 1;
+        }
+    }
+    Highcharts.chart('pufBar', {
+        chart: {
+            type: 'column',
+            style: {
+                fontFamily: "'Montserrat', sans-serif"
+            }
+        },
+        colors: [
+            '#17408B',
+            '#C9082A'
+        ],
+        title: {
+            text: 'Shot Types for Competing Play-off Teams (2017)',
+            fontWeight: 'bold'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://www.mysportsfeeds.com/"> mysportsfeeds.com</a>'
+        },
+        xAxis: {
+            categories: [
+                'GSW', 'CAV', 'SAS', 'BOS'
+            ],
+            labels: {
+                useHTML: true,
+                formatter: function() {
+                    if (this.value == 'GSW') {
+                        return '<img src = "GSWlogo.png" style = "width: 60px; vertical-align: middle"/>'
+                    }
+                    else if (this.value == 'CAV') {
+                        return '<img src = "CAVlogo.png" style = "width: 70px; vertical-align: middle"/>'
+                    }
+                    else if (this.value == 'BOS') {
+                        return '<img src = "BOSlogo.png" style = "width: 80px; vertical-align: middle"/>'
+                    }
+                    else if (this.value == 'SAS') {
+                        return '<img src = "SPURSlogo.jpg" style = "width: 80px; vertical-align: middle"/>'
+                    }
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number of baskets made'
+            }
+        },
+        series: [{
+            name: '2-point shots',
+            data: [gsw2, cav2, sas2, bos2]
+        },
+        {
+            name: '3-point shots',
+            data: [gsw3, cav3, sas3, bos3]
+        }
+    ],
+    credits: false
+    })
+}
 function init() {
-    countries = loadJSON('countries.json');
+    coaches = loadJSON('countries.json');
     warriors = loadJSON('GSW.json');
-    hr = loadJSON('GSWrebs.json');
     gswSalaries = loadJSON('GSWsalaries.json');
-    countries.then(function (country) {
-        plotPie(country);
+    bofa = loadJSON('championLog.json');
+    coaches.then(function (coach) {
+        plotPie(coach);
     });
     warriors.then(function (score) {
         plotScore(score);
     });
-    hr.then(function (s) {
-        plotBar(s);
-    });
     gswSalaries.then(function(salary) {
-        plotSalaries(salary)
-    })
+        plotSalaries(salary);
+    });
+    bofa.then(function(shot) {
+        plotColumn(shot);
+    });
 }
 document.addEventListener('DOMContentLoaded', init, false);
 
