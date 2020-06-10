@@ -268,7 +268,9 @@ function plotColumn(shot) {
         ],
         title: {
             text: 'Shot Types for Competing Play-off Teams (2017)',
-            fontWeight: 'bold'
+            style: {
+                fontWeight: 'bold'
+            }
         },
         subtitle: {
             text: 'Source: <a href="https://www.mysportsfeeds.com/"> mysportsfeeds.com</a>'
