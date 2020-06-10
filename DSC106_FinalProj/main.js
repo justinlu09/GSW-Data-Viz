@@ -4,9 +4,6 @@ async function loadJSON(path) {
     return dataset;
 }
 
-
-
-
 function plotSalaries(salary) {
     var sal = [];
     var dates = [];
@@ -53,7 +50,6 @@ function plotSalaries(salary) {
 }
 
 function plotPie(coach) {
-
     Highcharts.chart('cie', {
         chart: {
             type: 'pie',
@@ -126,6 +122,7 @@ function plotPie(coach) {
         credits: false
     });
 }
+
 function plotScore(score) {
     var scored = [];
     var missed = [];
@@ -138,19 +135,6 @@ function plotScore(score) {
     }
     scoredProp = scored.length / (scored.length + missed.length);
     missedProp = missed.length / (scored.length + missed.length);
-
-    leftTop3 = Array.from({length: 300}, (x, i) => i);
-    leftBottom3 = Array.from({length: 300}, (x, i) => i);
-
-    function leftTop3Line(xValues) {
-        var dataLin = [],
-            xValues = xValues;
-
-        xValues.forEach(function(x) {
-            dataLin.push(15 * Math.sqrt(- ( x - 320)) + 250);
-        })
-        return dataLin;
-    }
 
     Highcharts.chart('court', {
         chart: {
@@ -191,10 +175,6 @@ function plotScore(score) {
           
         },
         series: [
-            // {
-            //     type: 'spline',
-            //     data: leftTop3Line(leftTop3),
-            // },
             {
                 type: 'scatter',
                 data: scored,
@@ -255,6 +235,7 @@ function plotColumn(shot) {
             bos3 += 1;
         }
     }
+
     Highcharts.chart('pufBar', {
         chart: {
             type: 'column',
@@ -315,6 +296,7 @@ function plotColumn(shot) {
     credits: false
     })
 }
+
 function init() {
     coaches = loadJSON('countries.json');
     warriors = loadJSON('GSW.json');
@@ -333,5 +315,5 @@ function init() {
         plotColumn(shot);
     });
 }
-document.addEventListener('DOMContentLoaded', init, false);
 
+document.addEventListener('DOMContentLoaded', init, false);
