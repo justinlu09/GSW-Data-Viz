@@ -58,16 +58,6 @@ function plotPie(coach) {
                 fontFamily: "'Montserrat', sans-serif"
             }
         },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            floating: true,
-            borderWidth: 1,
-            backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-            shadow: true,
-            symbolRadius: 0
-        },
         title: {
             text: "Championships Won by Coach",
             style: {
@@ -83,40 +73,38 @@ function plotPie(coach) {
         plotOptions: {
             pie: {
                 colors: [
-                    '#FFDD33',
-                    '#fdb927',
                     '#006bb6',
-                    '#ECFF33'
+                    '#fdb927',
+                    '#FFDD33',
+                    '#FF6133'
                 ],
                 dataLabels: {
                     enabled: true,
-                    distance: -50,
-                    format: "{point.percentage:.1f}%",
                     style: {
                         fontSize: '18px'
-                    }
+                    },
+                    format: '{point.name}: {point.y}',
+                    distance: 40
                 }
-            },
-            showInLegend: true
+            }
         },
         series: [{
             type: 'pie',
             data:[
                 {
-                    name: 'Al Attles',
-                    y: 1
+                    name: 'Steve Kerr',
+                    y: 3
                 }, {
                     name: 'Edward Gottlieb',
                     y: 1
                 }, {
-                    name: 'Steve Kerr',
-                    y: 3
+                    name: 'Al Attles',
+                    y: 1
                 }, {
                     name: 'George Senesky',
                     y: 1
                 }
-            ], 
-            showInLegend: true
+            ]
         }
             
     ],
