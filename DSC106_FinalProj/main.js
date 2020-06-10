@@ -34,6 +34,7 @@ function plotSalaries(salary) {
             }
         },
         yAxis: {
+            min: 0,
             title: {
                 text: 'Salary'
             }
