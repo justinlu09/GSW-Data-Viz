@@ -1,6 +1,6 @@
 # Golden State Warriors Data Viz Project
 
-<a> https://josephbui21.github.io/DSC106_FinalProj/ </a>
+https://josephbui21.github.io/DSC106_FinalProj/
 
 By: Joseph Bui, Justin Lu <br>
 <br>
